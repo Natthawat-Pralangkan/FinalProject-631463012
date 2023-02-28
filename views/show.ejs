@@ -1,0 +1,32 @@
+<%- include("_header") -%>
+
+<h1 style="padding-top: 50px;">ข้อมูลผู้ใช้ </h1>
+
+<div class="table-responsive-sm">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th class="d-print-none">
+          <a class="btn btn-sm btn-success" href="/create">Add</a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const show of model) { %>
+        <tr>
+          <td><%= show.ID %></td>
+          <td><%= show.name %></td>
+          <td><%= show.email %></td>
+          <td class="d-print-none">
+            <a class="btn btn-sm btn-warning" href="/edit/<%= show.ID %>">Edit</a>
+            <a class="btn btn-sm btn-danger" href="/delete/<%= show.ID %>">Delete</a>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+<%- include("_footer") -%>
